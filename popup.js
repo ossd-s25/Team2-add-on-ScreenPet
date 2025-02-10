@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", function(){
     const petImage = document.getElementById("pet");
     const statusText = document.getElementById("status");
-    const feedButton = this.documentElementById("feed");
+    const feedButton = document.getElementById("feed");
 
     const petStates={
         hungry:{
-            img:"assets/images/cat_hungry_100x100.png"
+            img:"assets/images/cat_hungry_100x100.png",
             text: "Your pet is hungry!"
         },
         full:{
-            img:"assets/images/cat_full_100x100.png"
+            img:"assets/images/cat_full_100x100.png",
             text: "Your pet is full!"
         },
         happy:{
-            img:"assets/images/cat_full_100x100.png"
+            img:"assets/images/cat_full_100x100.png",
             text: "Your pet is happy!"
         }
     };
