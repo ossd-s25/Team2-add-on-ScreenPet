@@ -23,7 +23,11 @@ document.addEventListener("DOMContentLoaded", function(){
         const lastFedTime = result.lastFed || 0;
         const timeSinceFed = (currentTime - lastFedTime)/1000;
 
-        if (timeSinceFed >= 1200){
+        if (!result.petMood){
+            chrome.storage.local.set({petMood:"hungry"}, function(){
+                updatePet("hungry");
+            });
+        } else if (timeSinceFed >= 1200){
             updatePet("hungry");
         } else{
             updatePet(result.petMood || "hungry");
