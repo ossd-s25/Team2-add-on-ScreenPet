@@ -1,9 +1,30 @@
 # Virtual Pet Extension
 
-The Virtual Pet extension is an interactive browser extension that enables user to take care of a digital pet without wasting their time when surfing on internet. The pet has different moods and requires regular feeding to stay happy. If left unfed for too long, it will become hungry again automatically.
+## Overview
+The Virtual Pet extension is an interactive Firefox browser extension where the user can take care of a digital pet. Keep your pet happy by not letting it get too hungry, but don't overfeed it either!
 
-## Why does user want this?
-- Interactive Experience: Have a fun, simple virtual pet while browsing.
-- Persistent State: The pet's mood is stored in Chrome storage, so it remembers its state even after closing the browser.
-- Time-Based Interactions – The pet gets hungry every 20 minutes unless fed, adding a dynamic element. So the users are able to know that they may need a rest for their eye while using it.
-- Easy to Use: Users just need to click a button to feed the pet and keep it happy. It won't take much time for user to interact with this pet.
+## Installing the Virtual Pet
+Firefox is required to run this extension.
+
+1. Clone this repo to your local machine.
+
+2. Go to [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) in Firefox.
+
+3. Click the `Load Temporary Add-on...` button.
+
+4. Select the `popup.js` file in the explorer that opens.
+
+5. Open the Virtual Pet extension in the browser.
+
+## Caring for your Virtual Pet
+Your pet will get hungry over time! Click the button to feed it. If you overfeed it, it will become too full, and then it won't be happy anymore:\(. Be sure to take good care of your pet!
+
+## Contributors
+- [Stella Zhang](https://github.com/qq3173732005)
+
+- [Chuqiao Huang](https://github.com/ChuqiaoHuang)
+
+- [Polina Belova](https://github.com/polinapianina)
+
+## License
+This work is provided under the MIT license. More information [here](https://github.com/ossd-s25/Team2-add-on-ScreenPet/blob/main/LICENSE).
