@@ -17,3 +17,14 @@ Firefox is required to run this extension.
 5. Open the Virtual Pet extension in the browser.
 
 ## Caring for your Virtual Pet
+Your pet will get hungry over time! Click the button to feed it. If you overfeed it, it will become too full, and then it won't be happy anymore:(. Be sure to take good care of your pet!
+
+## Contributors
+- [Stella Zhang](https://github.com/qq3173732005)
+
+- [Chuqiao Huang](https://github.com/ChuqiaoHuang)
+
+- [Polina Belova](https://github.com/polinapianina)
+
+## License
+This work is provided under the MIT license. More information [here](https://github.com/ossd-s25/Team2-add-on-ScreenPet/blob/main/LICENSE).
