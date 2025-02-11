@@ -21,7 +21,7 @@ const petStates={
 
 browser.storage.local.get('fullness').then(result => {
     if (result.fullness === undefined) {
-        browser.storage.local.set({ fullness: MAX_FULLNESS });
+        browser.storage.local.set({ fullness: MAX_FULLNESS / 2 });
     }
 });
 
