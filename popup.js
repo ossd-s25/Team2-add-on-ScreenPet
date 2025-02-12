@@ -1,54 +1,77 @@
-document.addEventListener("DOMContentLoaded", function(){
+const MAX_FULLNESS = 30;
+const MIN_FULLNESS = 0;
+const DECREASE_FULLNESS_BY = 5;
+const INCREASE_FULLNESS_BY = 5;
+const DECREASE_INTERVAL = 5000; // 5 seconds in milliseconds
+
+const petStates={
+    hungry:{
+        img:"assets/images/cat_hungry_100x100.png",
+        text: "Your pet is hungry!"
+    },
+    full:{
+        img:"assets/images/cat_hungry_100x100.png",
+        text: "Your pet is too full!"
+    },
+    happy:{
+        img:"assets/images/cat_hungry_100x100.png",
+        text: "Your pet is happy!"
+    }
+};
+
+browser.storage.local.get('fullness').then(result => {
+    if (result.fullness === undefined) {
+        browser.storage.local.set({ fullness: MAX_FULLNESS / 2 });
+    }
+});
+
+function updatePet(fullness) {
     const petImage = document.getElementById("pet");
     const statusText = document.getElementById("status");
-    const feedButton = document.getElementById("feed");
 
-    const petStates={
-        hungry:{
-            img:"assets/images/cat_hungry_100x100.png",
-            text: "Your pet is hungry!"
-        },
-        full:{
-            img:"assets/images/cat_full_100x100.png",
-            text: "Your pet is full!"
-        },
-        happy:{
-            img:"assets/images/cat_full_100x100.png",
-            text: "Your pet is happy!"
-        }
-    };
-
-    chrome.storage.local.get(["petMood","lastFed"], function(result){
-        const currentTime = Date.now();
-        const lastFedTime = result.lastFed || 0;
-        const timeSinceFed = (currentTime - lastFedTime)/1000;
-
-        if (!result.petMood){
-            chrome.storage.local.set({petMood:"hungry"}, function(){
-                updatePet("hungry");
-            });
-        } else if (timeSinceFed >= 1200){
-            updatePet("hungry");
-        } else{
-            updatePet(result.petMood || "hungry");
-            setTimeout(() => updatePet("hungry"),(1200 - timeSinceFed)*1000);
-        }
-    });
-
-    function updatePet(mood){
-        petImage.src = petStates[mood].img;
-        statusText.textContent = petStates[mood].text;
-        chrome.storage.local.set({petMood:mood});
-
-        if (mood == "full"){
-            const fedTime = Date.now();
-            chrome.storage.local.set({lastFed:fedTime});
-
-            setTimeout(() => updatePet("hungry"), 1200 * 1000);
-        }
+    console.log(petImage);
+    console.log("updating pet", fullness);
+    let mood = "happy"
+    if (fullness <= MIN_FULLNESS) {
+        mood = "hungry";
+    }
+    else if (fullness >= MAX_FULLNESS) {
+        mood = "full";
     }
 
-    feedButton.addEventListener("click", function(){
-        updatePet("full");
-    })
+    petImage.src = petStates[mood].img;
+    statusText.textContent = petStates[mood].text;
+}
+
+function decreaseFullness() {
+    browser.storage.local.get('fullness').then(result => {
+        let updatedFullness = Math.max(MIN_FULLNESS, result.fullness - DECREASE_FULLNESS_BY);
+        browser.storage.local.set({ fullness: updatedFullness });
+        updatePet(updatedFullness);
+    });
+}
+
+function feed() {
+    browser.storage.local.get('fullness').then(result => {
+        let updatedFullness = Math.min(MAX_FULLNESS, result.fullness + INCREASE_FULLNESS_BY);
+        browser.storage.local.set({ fullness: updatedFullness });
+        updatePet(updatedFullness);
+    });
+}
+
+// interval to decrease fullness
+let decreaseInterval;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const feedButton = document.getElementById('feed');
+
+    browser.storage.local.get('fullness').then(result => {
+        updatePet(result.fullness || MAX_FULLNESS);
+    });
+
+    decreaseInterval = setInterval(decreaseFullness, DECREASE_INTERVAL);
+
+    if (feedButton) {
+        feedButton.addEventListener('click', feed);
+    }
 });
