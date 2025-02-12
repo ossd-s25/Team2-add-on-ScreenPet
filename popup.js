@@ -11,7 +11,7 @@ const petStates={
     },
     full:{
         img:"assets/images/cat/cat_full.png",
-        text: "Your pet is full!"
+        text: "Your pet is too full!"
     },
     happy:{
         img:"assets/images/cat/cat_happy.png",
@@ -59,10 +59,9 @@ function feed() {
     });
 }
 
-
-
 // interval to decrease fullness
 let decreaseInterval;
+
 document.addEventListener('DOMContentLoaded', () => {
     const feedButton = document.getElementById('feed');
 
