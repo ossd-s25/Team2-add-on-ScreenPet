@@ -16,6 +16,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    cursor: url("../images/cat/cat_cursor32.png"), auto;    
+/* Cat-specific hover cursor */
+body.cat button:hover {
+    cursor: url("../images/cat/cat_cursor32.png"), auto;
+}
+
+/* Panda-specific hover cursor */
+body.panda button:hover {
+    cursor: url("../images/panda/panda_cursor32.png"), auto;
 }
