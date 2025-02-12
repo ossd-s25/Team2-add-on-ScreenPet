@@ -8,8 +8,8 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "background":{
-      "script": ["background.js"]
+    "background": {
+    "scripts": ["background.js"]
     },
     "action": {
       "default_popup": "popup.html",

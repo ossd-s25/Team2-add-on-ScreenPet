@@ -6,15 +6,15 @@ const DECREASE_INTERVAL = 5000; // 5 seconds in milliseconds
 
 const petStates={
     hungry:{
-        img:"assets/images/cat_hungry_100x100.png",
+        img:"assets/images/cat/cat_hungry.png",
         text: "Your pet is hungry!"
     },
     full:{
-        img:"assets/images/cat_hungry_100x100.png",
-        text: "Your pet is too full!"
+        img:"assets/images/cat/cat_full.png",
+        text: "Your pet is full!"
     },
     happy:{
-        img:"assets/images/cat_hungry_100x100.png",
+        img:"assets/images/cat/cat_happy.png",
         text: "Your pet is happy!"
     }
 };
@@ -59,9 +59,10 @@ function feed() {
     });
 }
 
+
+
 // interval to decrease fullness
 let decreaseInterval;
-
 document.addEventListener('DOMContentLoaded', () => {
     const feedButton = document.getElementById('feed');
 
