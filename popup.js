@@ -1,5 +1,5 @@
 const MAX_FULLNESS = 30;
-const MIN_FULLNESS = 0;
+const MIN_FULLNESS = 5;
 const DECREASE_FULLNESS_BY = 5;
 const INCREASE_FULLNESS_BY = 5;
 const DECREASE_INTERVAL = 5000; // 5 seconds in milliseconds
