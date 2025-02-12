@@ -43,7 +43,7 @@ We are committed to providing a welcoming, inclusive, and harassment-free experi
 
 ## Coding Guidelines
 
-1. **Code Style*: While we ourselves don't have a strict style set up for this project (yet), it's in your best interest to follow a consistent style when writing code.
+1. **Code Style**: While we ourselves don't have a strict style set up for this project (yet), it's in your best interest to follow a consistent style when writing code.
 2. **Comments**: Write clear comments (!!) for complex logic.
 3. **Naming**: Always remember to use descriptive names for variables, functions, and classes.
 4. **Modularity**: Keep functions and modules focused; avoid large, monolithic files.
@@ -56,11 +56,17 @@ We are committed to providing a welcoming, inclusive, and harassment-free experi
 Try to keep to a style such as [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
 
 **feat**: A new feature
+
 **fix**: A bug fix
+
 **docs**: Documentation-only changes
+
 **style**: Code style (formatting, missing semicolons, etc.)
+
 **refactor**: A code change that neither fixes a bug nor adds a feature
+
 **test**: Adding or correcting tests
+
 *etc.*
 
 ---
