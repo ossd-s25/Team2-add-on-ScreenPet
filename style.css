@@ -15,7 +15,3 @@ button {
     padding: 8px 12px;
     cursor: pointer;
 }
-
-button:hover {
-    cursor: url("../images/cat/cat_cursor32.png"), auto;    
-}
