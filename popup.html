@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Virtual Pet</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <h2>Virtual Pet</h2>
+
+    <!-- Pet selection interface -->
+    <div>
+        <label for="petSelect">Choose your pet:</label>
+        <select id="petSelect">
+            <option value="cat">Cat</option>
+            <option value="panda">Panda</option>
+        </select>
+    </div>
+
     <img id="pet" src="assets/images/cat/cat_hungry.png" alt="Pet">
     <p id="status">Your pet is hungry!</p>
     <button id="feed">Feed Pet</button>
+
     <script src="popup.js"></script>
 </body>
 </html>
+
