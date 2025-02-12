@@ -3,6 +3,18 @@
 ## Overview
 The Virtual Pet extension is an interactive Firefox browser extension where the user can take care of a digital pet. Keep your pet happy by not letting it get too hungry, but don't overfeed it either!
 
+The main goals and features currently planned are:
+
+Selecting from two pets and food types
+
+Pet grows when fed (clicks) and shrinks if ignored
+
+Pet persists across pages in a single browser session
+
+Reset option for starting over
+
+**Note**: The pet’s state is not saved if the browser is closed.
+
 ## Installing the Virtual Pet
 Firefox is required to run this extension.
 
@@ -19,7 +31,7 @@ Firefox is required to run this extension.
 ## Caring for your Virtual Pet
 Your pet will get hungry over time! Click the button to feed it. If you overfeed it, it will become too full, and then it won't be happy anymore:\(. Be sure to take good care of your pet!
 
-## Contributors
+## Core Contributors
 - [Stella Zhang](https://github.com/qq3173732005)
 
 - [Chuqiao Huang](https://github.com/ChuqiaoHuang)
