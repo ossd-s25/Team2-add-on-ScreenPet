@@ -1,7 +1,4 @@
-
-## **Welcome**, contributors!
-
----
+# **Welcome**, contributors!
 
 ## Contributing to VirtualPet
 
