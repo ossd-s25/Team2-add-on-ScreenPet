@@ -1,0 +1,75 @@
+/* 
+general styles
+*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+h4 {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/*
+input and button styles
+*/
+input[type="text"] {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+input[type="text"]:focus {
+    border-color: #4A90E2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* 
+submit message styling 
+*/
+#confirmationMessage {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.3em;
+}
