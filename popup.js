@@ -2,7 +2,8 @@ const MAX_FULLNESS = 30;
 const MIN_FULLNESS = 15;
 const DECREASE_FULLNESS_BY = 5;
 const INCREASE_FULLNESS_BY = 5;
-const DECREASE_INTERVAL = 5000; // 5 seconds in milliseconds
+const DEFAULT_DECREASE_INTERVAL = 5000; // 5 seconds in milliseconds
+const CHECK_FULLNESS_INTERVAL = 2000 // 2 seconds in milliseconds
 
 
 const catStates = {
@@ -45,13 +46,12 @@ function getPetStates(chosenPet) {
     return chosenPet === 'panda' ? pandaStates : catStates;
 }
 
-let decreaseInterval;
+let fullnessCheckInterval;
 
 document.addEventListener('DOMContentLoaded', () => {
     const feedButton = document.getElementById('feed');
     const petSelect = document.getElementById('petSelect');
 
-   
     browser.storage.local.get(['chosenPet', 'fullness']).then(result => {
         // If no chosen pet, default to "cat"
         const chosenPet = result.chosenPet || 'cat';
@@ -68,10 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePet(currentFullness);
     });
 
-    
-    decreaseInterval = setInterval(decreaseFullness, DECREASE_INTERVAL);
+    fullnessCheckInterval = setInterval(checkFullness, CHECK_FULLNESS_INTERVAL);
 
-    
     petSelect.addEventListener('change', () => {
         const newPet = petSelect.value;
         
@@ -83,16 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
             updatePet(fullness);
         });
     });
-
-    
+ 
     if (feedButton) {
         feedButton.addEventListener('click', feed);
     }
 });
 
+function checkFullness() {
+    browser.storage.local.get('fullness').then(result => {
+        let currentFullness = result.fullness || MAX_FULLNESS;
+        updatePet(currentFullness);
+    });
+}
+
 function updatePet(fullness) {
     const petImage = document.getElementById("pet");
     const statusText = document.getElementById("status");
+
+    console.log("Updating pet - Fullness =", fullness);
 
     
     let mood = "happy";
@@ -110,16 +116,6 @@ function updatePet(fullness) {
 
         petImage.src = petStates[mood].img;
         statusText.textContent = petStates[mood].text;
-    });
-}
-
-function decreaseFullness() {
-    browser.storage.local.get('fullness').then(result => {
-        let currentFullness = result.fullness || MAX_FULLNESS;
-        currentFullness = Math.max(MIN_FULLNESS, currentFullness - DECREASE_FULLNESS_BY);
-
-        browser.storage.local.set({ fullness: currentFullness });
-        updatePet(currentFullness);
     });
 }
 

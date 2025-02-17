@@ -16,6 +16,11 @@
     "default_icon": "assets/icons/icon128.png"
   },
   "permissions": [
-    "storage"
-  ]
+    "storage",
+    "alarms"
+  ],
+  "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    }
 }
